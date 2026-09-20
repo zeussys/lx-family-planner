@@ -30,3 +30,22 @@ test('normalized codes format as currency', () => {
   }).format(12.5);
   assert.equal(formatted, '$12.50');
 });
+
+import {
+  currencyBanknoteEmoji,
+  displayMoneyIcon
+} from '../shared/currency.js';
+
+test('banknote emoji follows the configured currency', () => {
+  assert.equal(currencyBanknoteEmoji('EUR'), '💶');
+  assert.equal(currencyBanknoteEmoji('AUD'), '💵');
+  assert.equal(currencyBanknoteEmoji('GBP'), '💷');
+  assert.equal(currencyBanknoteEmoji('CHF'), '💰');
+});
+
+test('stored euro icons display in the configured currency', () => {
+  assert.equal(displayMoneyIcon('💶', 'AUD'), '💵');
+  assert.equal(displayMoneyIcon('💶', 'EUR'), '💶');
+  assert.equal(displayMoneyIcon('🧾', 'AUD'), '🧾');
+  assert.equal(displayMoneyIcon('', 'AUD'), '💵');
+});

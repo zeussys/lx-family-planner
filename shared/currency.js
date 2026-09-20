@@ -23,3 +23,22 @@ export function normalizeCurrencyCode(value, fallback = DEFAULT_CURRENCY) {
   if (!/^[A-Z]{3}$/.test(code)) return fallback;
   return isSupportedCurrency(code) ? code : fallback;
 }
+
+const DOLLAR_CURRENCIES = new Set([
+  'USD', 'AUD', 'CAD', 'NZD', 'SGD', 'HKD', 'MXN', 'ARS', 'CLP', 'COP', 'TWD'
+]);
+const BANKNOTE_BY_CURRENCY = { EUR: '💶', GBP: '💷', JPY: '💴', CNY: '💴' };
+const EURO_BANKNOTE = '💶';
+
+// Emoji banknote matching the currency (💰 when there is no specific note).
+export function currencyBanknoteEmoji(currency = DEFAULT_CURRENCY) {
+  if (BANKNOTE_BY_CURRENCY[currency]) return BANKNOTE_BY_CURRENCY[currency];
+  return DOLLAR_CURRENCIES.has(currency) ? '💵' : '💰';
+}
+
+// Older bookings stored the euro note as their icon; show the configured
+// currency's note instead without rewriting stored data.
+export function displayMoneyIcon(icon, currency = DEFAULT_CURRENCY) {
+  if (!icon || icon === EURO_BANKNOTE) return currencyBanknoteEmoji(currency);
+  return icon;
+}

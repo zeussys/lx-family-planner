@@ -17,7 +17,10 @@ import webPush from 'web-push';
 import { parseICalendar } from '../shared/icsCalendar.js';
 import { eventAudienceIds } from '../shared/calendarAudience.js';
 import { parseCustomThemeCss } from '../shared/customThemeCss.js';
-import { normalizeCurrencyCode } from '../shared/currency.js';
+import {
+  currencyBanknoteEmoji,
+  normalizeCurrencyCode
+} from '../shared/currency.js';
 import {
   nextBirthdayEvent,
   normalizeBirthDate
@@ -7675,7 +7678,7 @@ export function createApp() {
           amountCents: Number(req.body?.amountCents || 0),
           starCost: 0,
           note: requireText(req.body?.note, translate('fields.transactionNote'), 160),
-          icon: cleanText(req.body?.icon, '💶', 12),
+          icon: cleanText(req.body?.icon, currencyBanknoteEmoji(APP_CURRENCY), 12),
           createdByMemberId: null,
           createdByName: req.activeMember.name,
           createdByExternalFamilyId: req.session.familyId,
@@ -8984,7 +8987,7 @@ export function createApp() {
           amountCents: Number(req.body?.amountCents || 0),
           starCost: Number(req.body?.starCost || 0),
           note: requireText(req.body?.note, translate('fields.transactionNote'), 160),
-          icon: cleanText(req.body?.icon, '💶', 12),
+          icon: cleanText(req.body?.icon, currencyBanknoteEmoji(APP_CURRENCY), 12),
           createdByMemberId: req.activeMember.id,
           createdByName: req.activeMember.name,
           createdAt: Date.now()

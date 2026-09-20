@@ -17,6 +17,7 @@ import { DEFAULT_REWARD_ICON } from '../Tasks/RewardIcon';
 import RewardIconPicker from '../Tasks/RewardIconPicker';
 import { getAppCurrency } from '../../utils/currency.js';
 import { currencyBadgeIcon } from '../../utils/currencyIcon.js';
+import { currencyBanknoteEmoji } from '../../../shared/currency.js';
 
 const GRANTS = [
   { key: 'sharedCalendar', icon: CalendarDays },
@@ -88,7 +89,7 @@ export default function FamilyConnectionAccess({ relationships }) {
   const [money, setMoney] = useState({
     amount: '5',
     note: t('access.planner.money.defaultNote'),
-    icon: '💶'
+    icon: currencyBanknoteEmoji(getAppCurrency())
   });
 
   useEffect(() => {

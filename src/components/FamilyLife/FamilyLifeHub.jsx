@@ -45,6 +45,10 @@ import {
 } from '../../utils/formatting';
 import { getAppCurrency } from '../../utils/currency.js';
 import { currencyBadgeIcon } from '../../utils/currencyIcon.js';
+import {
+  currencyBanknoteEmoji,
+  displayMoneyIcon
+} from '../../../shared/currency.js';
 import { eventIsForMember } from '../../../shared/calendarAudience.js';
 import {
   SCHOOL_SUBJECT_COLORS,
@@ -486,7 +490,7 @@ export default function FamilyLifeHub() {
       amountCents: Math.round(Number(moneyForm.amount) * 100),
       starCost: Math.max(0, Number(moneyForm.starCost || 0)),
       note: moneyForm.note,
-      icon: Number(moneyForm.amount) < 0 ? '🧾' : '💶'
+      icon: Number(moneyForm.amount) < 0 ? '🧾' : currencyBanknoteEmoji(getAppCurrency())
     });
     if (created) {
       setMoneyForm(previous => ({ ...previous, starCost: '0' }));
@@ -1037,7 +1041,7 @@ export default function FamilyLifeHub() {
             <div className="pocket-ledger">
               {myTransactions.slice(0, 8).map(transaction => (
                 <article key={transaction.id}>
-                  <span>{transaction.icon || '💶'}</span>
+                  <span>{displayMoneyIcon(transaction.icon, getAppCurrency())}</span>
                   <div>
                     <strong>{transaction.note}</strong>
                     <small>
