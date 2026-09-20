@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   AlarmClock,
-  BadgeEuro,
   BellOff,
   BookOpenCheck,
   CalendarDays,
@@ -45,6 +44,7 @@ import {
   getWeekdayNames
 } from '../../utils/formatting';
 import { getAppCurrency } from '../../utils/currency.js';
+import { currencyBadgeIcon } from '../../utils/currencyIcon.js';
 import { eventIsForMember } from '../../../shared/calendarAudience.js';
 import {
   SCHOOL_SUBJECT_COLORS,
@@ -1125,7 +1125,7 @@ export default function FamilyLifeHub() {
 
           {isAdult && selectedId && (
             <section className="family-life-panel money-booking">
-              <PanelHeader kicker={t('adultsOnly')} title={t('money.booking.title')} icon={BadgeEuro} />
+              <PanelHeader kicker={t('adultsOnly')} title={t('money.booking.title')} icon={currencyBadgeIcon()} />
               <form onSubmit={bookMoney} className="family-life-form">
                 <label><span>{t('money.booking.amountLabel', { currency: getAppCurrency() })}</span>
                   <input

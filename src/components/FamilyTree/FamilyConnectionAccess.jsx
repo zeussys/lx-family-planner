@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  BadgeEuro,
   CalendarDays,
   CheckSquare,
   Coins,
@@ -17,12 +16,13 @@ import { useFamily } from '../../context/FamilyContext';
 import { DEFAULT_REWARD_ICON } from '../Tasks/RewardIcon';
 import RewardIconPicker from '../Tasks/RewardIconPicker';
 import { getAppCurrency } from '../../utils/currency.js';
+import { currencyBadgeIcon } from '../../utils/currencyIcon.js';
 
 const GRANTS = [
   { key: 'sharedCalendar', icon: CalendarDays },
   { key: 'tasks', icon: CheckSquare },
   { key: 'rewards', icon: Star },
-  { key: 'pocketMoney', icon: BadgeEuro }
+  { key: 'pocketMoney', icon: null }
 ];
 
 function ChildChoice({ member, active, onClick }) {
@@ -195,7 +195,7 @@ export default function FamilyConnectionAccess({ relationships }) {
             </header>
             <div className="family-grant-list">
               {GRANTS.map(grant => {
-                const Icon = grant.icon;
+                const Icon = grant.icon || currencyBadgeIcon();
                 const active = Boolean(
                   relationship.grantsToOther?.[grant.key]
                 );
