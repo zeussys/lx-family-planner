@@ -101,12 +101,12 @@
       "empty": "No wish to save for yet.",
       "creatorTitle": "Add savings goal",
       "titlePlaceholder": "What are you saving for?",
-      "amountAria": "Target amount in euros",
+      "amountAria": "Target amount in {{currency}}",
       "create": "Create goal"
     },
     "booking": {
       "title": "Book pocket money",
-      "amountLabel": "Amount in euros – negative for an expense",
+      "amountLabel": "Amount in {{currency}} – negative for an expense",
       "noteLabel": "Booking note",
       "starsLabel": "Convert stars for it (optional)",
       "submit": "Book safely",

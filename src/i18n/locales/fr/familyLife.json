@@ -101,12 +101,12 @@
       "empty": "Pas encore de souhait à épargner.",
       "creatorTitle": "Ajouter un objectif d'épargne",
       "titlePlaceholder": "Pour quoi économisez-vous ?",
-      "amountAria": "Montant cible en euros",
+      "amountAria": "Montant cible en {{currency}}",
       "create": "Créer l'objectif"
     },
     "booking": {
       "title": "Enregistrer l'argent de poche",
-      "amountLabel": "Montant en euros – négatif pour une dépense",
+      "amountLabel": "Montant en {{currency}} – négatif pour une dépense",
       "noteLabel": "Note de l'écriture",
       "starsLabel": "Convertir des étoiles pour (facultatif)",
       "submit": "Enregistrer en sécurité",

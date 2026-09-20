@@ -101,12 +101,12 @@
       "empty": "Nog geen wens om voor te sparen.",
       "creatorTitle": "Spaardoel toevoegen",
       "titlePlaceholder": "Waar spaar je voor?",
-      "amountAria": "Doelbedrag in euro's",
+      "amountAria": "Doelbedrag in {{currency}}",
       "create": "Doel aanmaken"
     },
     "booking": {
       "title": "Zakgeld boeken",
-      "amountLabel": "Bedrag in euro's – negatief voor een uitgave",
+      "amountLabel": "Bedrag in {{currency}} – negatief voor een uitgave",
       "noteLabel": "Boekingsnotitie",
       "starsLabel": "Sterren ervoor omzetten (optioneel)",
       "submit": "Veilig boeken",

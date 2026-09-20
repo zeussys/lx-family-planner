@@ -101,12 +101,12 @@
       "empty": "Todavía no hay ningún deseo por el que ahorrar.",
       "creatorTitle": "Añadir meta de ahorro",
       "titlePlaceholder": "¿Para qué estás ahorrando?",
-      "amountAria": "Importe objetivo en euros",
+      "amountAria": "Importe objetivo en {{currency}}",
       "create": "Crear meta"
     },
     "booking": {
       "title": "Anotar paga semanal",
-      "amountLabel": "Importe en euros; negativo para un gasto",
+      "amountLabel": "Importe en {{currency}}; negativo para un gasto",
       "noteLabel": "Nota del movimiento",
       "starsLabel": "Convertir estrellas para ello (opcional)",
       "submit": "Anotar de forma segura",

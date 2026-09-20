@@ -59,7 +59,7 @@
         "image": "Imagen de la recompensa"
       },
       "money": {
-        "amount": "Importe en euros",
+        "amount": "Importe en {{currency}}",
         "note": "¿Para qué?",
         "defaultNote": "De abuela y abuelo"
       },

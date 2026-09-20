@@ -59,7 +59,7 @@
         "image": "Beloningsafbeelding"
       },
       "money": {
-        "amount": "Bedrag in euro's",
+        "amount": "Bedrag in {{currency}}",
         "note": "Waarvoor?",
         "defaultNote": "Van oma & opa"
       },

@@ -59,7 +59,7 @@
         "image": "Bild der Belohnung"
       },
       "money": {
-        "amount": "Betrag in Euro",
+        "amount": "Betrag in {{currency}}",
         "note": "Wofür?",
         "defaultNote": "Von Oma & Opa"
       },

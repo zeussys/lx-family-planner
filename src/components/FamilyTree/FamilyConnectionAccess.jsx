@@ -16,6 +16,7 @@ import {
 import { useFamily } from '../../context/FamilyContext';
 import { DEFAULT_REWARD_ICON } from '../Tasks/RewardIcon';
 import RewardIconPicker from '../Tasks/RewardIconPicker';
+import { getAppCurrency } from '../../utils/currency.js';
 
 const GRANTS = [
   { key: 'sharedCalendar', icon: CalendarDays },
@@ -396,7 +397,7 @@ export default function FamilyConnectionAccess({ relationships }) {
               selectedRelationship.grantsFromOther?.pocketMoney && (
                 <>
                   <label>
-                    <span>{t('access.planner.money.amount')}</span>
+                    <span>{t('access.planner.money.amount', { currency: getAppCurrency() })}</span>
                     <input
                       type="number"
                       min="-10000"

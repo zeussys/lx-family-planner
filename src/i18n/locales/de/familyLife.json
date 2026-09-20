@@ -101,12 +101,12 @@
       "empty": "Noch kein Wunsch zum Daraufsparen.",
       "creatorTitle": "Sparziel hinzufügen",
       "titlePlaceholder": "Worauf wird gespart?",
-      "amountAria": "Zielbetrag in Euro",
+      "amountAria": "Zielbetrag in {{currency}}",
       "create": "Ziel anlegen"
     },
     "booking": {
       "title": "Taschengeld buchen",
-      "amountLabel": "Betrag in Euro – negativ für Ausgabe",
+      "amountLabel": "Betrag in {{currency}} – negativ für Ausgabe",
       "noteLabel": "Buchungstext",
       "starsLabel": "Dafür Sterne umwandeln (optional)",
       "submit": "Sicher buchen",

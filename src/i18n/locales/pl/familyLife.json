@@ -101,12 +101,12 @@
       "empty": "Brak życzeń, na które warto oszczędzać.",
       "creatorTitle": "Dodaj cel oszczędzania",
       "titlePlaceholder": "Na co oszczędzasz?",
-      "amountAria": "Kwota docelowa w euro",
+      "amountAria": "Kwota docelowa w {{currency}}",
       "create": "Utwórz cel"
     },
     "booking": {
       "title": "Zaksięguj kieszonkowe",
-      "amountLabel": "Kwota w euro – ujemna dla wydatku",
+      "amountLabel": "Kwota w {{currency}} – ujemna dla wydatku",
       "noteLabel": "Notatka księgowania",
       "starsLabel": "Wymień za to gwiazdki (opcjonalnie)",
       "submit": "Zaksięguj bezpiecznie",

@@ -59,7 +59,7 @@
         "image": "Immagine del premio"
       },
       "money": {
-        "amount": "Importo in euro",
+        "amount": "Importo in {{currency}}",
         "note": "Per cosa?",
         "defaultNote": "Da nonna e nonno"
       },

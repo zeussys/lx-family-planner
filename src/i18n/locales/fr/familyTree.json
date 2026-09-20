@@ -59,7 +59,7 @@
         "image": "Image de la récompense"
       },
       "money": {
-        "amount": "Montant en euros",
+        "amount": "Montant en {{currency}}",
         "note": "Pour quoi ?",
         "defaultNote": "De la part de mamie & papi"
       },

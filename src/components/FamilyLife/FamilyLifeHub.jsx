@@ -44,6 +44,7 @@ import {
   formatDate,
   getWeekdayNames
 } from '../../utils/formatting';
+import { getAppCurrency } from '../../utils/currency.js';
 import { eventIsForMember } from '../../../shared/calendarAudience.js';
 import {
   SCHOOL_SUBJECT_COLORS,
@@ -1102,7 +1103,7 @@ export default function FamilyLifeHub() {
                       step="0.50"
                       value={goalForm.amount}
                       onChange={event => setGoalForm(previous => ({ ...previous, amount: event.target.value }))}
-                      aria-label={t('money.goals.amountAria')}
+                      aria-label={t('money.goals.amountAria', { currency: getAppCurrency() })}
                       required
                     />
                     <div className="emoji-choice compact">
@@ -1126,7 +1127,7 @@ export default function FamilyLifeHub() {
             <section className="family-life-panel money-booking">
               <PanelHeader kicker={t('adultsOnly')} title={t('money.booking.title')} icon={BadgeEuro} />
               <form onSubmit={bookMoney} className="family-life-form">
-                <label><span>{t('money.booking.amountLabel')}</span>
+                <label><span>{t('money.booking.amountLabel', { currency: getAppCurrency() })}</span>
                   <input
                     type="number"
                     step="0.01"

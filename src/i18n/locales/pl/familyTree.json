@@ -59,7 +59,7 @@
         "image": "Obrazek nagrody"
       },
       "money": {
-        "amount": "Kwota w euro",
+        "amount": "Kwota w {{currency}}",
         "note": "Za co?",
         "defaultNote": "Od babci i dziadka"
       },

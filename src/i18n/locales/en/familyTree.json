@@ -59,7 +59,7 @@
         "image": "Reward image"
       },
       "money": {
-        "amount": "Amount in euros",
+        "amount": "Amount in {{currency}}",
         "note": "What for?",
         "defaultNote": "From Grandma & Grandpa"
       },

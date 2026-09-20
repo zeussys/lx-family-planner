@@ -101,12 +101,12 @@
       "empty": "Ancora nessun desiderio per cui risparmiare.",
       "creatorTitle": "Aggiungi obiettivo di risparmio",
       "titlePlaceholder": "Per cosa stai risparmiando?",
-      "amountAria": "Importo obiettivo in euro",
+      "amountAria": "Importo obiettivo in {{currency}}",
       "create": "Crea obiettivo"
     },
     "booking": {
       "title": "Registra paghetta",
-      "amountLabel": "Importo in euro: negativo per una spesa",
+      "amountLabel": "Importo in {{currency}}: negativo per una spesa",
       "noteLabel": "Nota del movimento",
       "starsLabel": "Converti stelle per questo (facoltativo)",
       "submit": "Registra in modo sicuro",
