@@ -855,6 +855,11 @@ Die Einstellung gilt für die Web-App, die Android-App und serverseitige
 Benachrichtigungen. Details und Übersetzungs-Konventionen stehen in
 [docs/i18n.de.md](docs/i18n.de.md).
 
+Taschengeld und andere Beträge werden standardmäßig in Euro angezeigt. Mit
+`LX_CURRENCY` lässt sich für die gesamte Installation ein anderer ISO-4217-Code
+setzen, zum Beispiel `LX_CURRENCY=CHF` oder `LX_CURRENCY=AUD`. Das Zahlenformat
+folgt der aktiven Sprache.
+
 ## Rezepte aus dem Web importieren
 
 Der Rezept-Finder liest öffentliche HTTPS-Seiten mit Schema.org- oder
@@ -1176,6 +1181,7 @@ Die Vorlage liegt in `.env.example`.
 | `EVENT_REMINDER_INTERVAL_SECONDS` | Prüfintervall für fällige Terminerinnerungen |
 | `FIREBASE_SERVICE_ACCOUNT_FILE` | optionaler Pfad zum privaten FCM-Dienstschlüssel; Standard `data/firebase-service-account.json` |
 | `FIREBASE_PROJECT_ID` | optional; Firebase-Projektkennung, normalerweise aus dem Dienstschlüssel gelesen |
+| `LX_CURRENCY` | Währung für Taschengeld und Beträge (ISO 4217), Standard `EUR` |
 | `NEXTCLOUD_SYNC_INTERVAL_MINUTES` | regelmäßiger DAV-Abgleich, Standard `15` |
 | `COMPOSE_PROFILES` | mit Wert `nextcloud` die mitgelieferte Family Cloud starten |
 | `NEXTCLOUD_PORT` | Port der mitgelieferten Nextcloud, Standard `8080` |

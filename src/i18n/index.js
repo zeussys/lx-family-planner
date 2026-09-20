@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { plannerApiFetch } from '../utils/apiConfig.js';
+import { setAppCurrency } from '../utils/currency.js';
 import { resources } from './resources.js';
 
 export const SUPPORTED_LANGUAGES = ['de', 'en', 'fr', 'es', 'it', 'nl', 'pl'];
@@ -52,14 +53,13 @@ export function applyLanguage(language) {
   return clean;
 }
 
-async function fetchServerLanguage() {
+async function fetchServerConfig() {
   try {
     const response = await plannerApiFetch('/api/config');
-    if (!response.ok) return '';
-    const data = await response.json();
-    return normalizeLanguage(data?.language);
+    if (!response.ok) return null;
+    return await response.json();
   } catch {
-    return '';
+    return null;
   }
 }
 
@@ -87,11 +87,13 @@ export async function initI18n() {
 
   // Die Server-Einstellung (APP_LANGUAGE) gewinnt, sobald sie geladen ist –
   // außer die Familie hat lokal bereits eine Sprache gewählt.
-  if (!getStoredLanguage()) {
-    fetchServerLanguage().then(serverLanguage => {
-      if (serverLanguage) applyLanguage(serverLanguage);
-    });
-  }
+  fetchServerConfig().then(config => {
+    if (!config) return;
+    // Die Währung gilt serverweit (LX_CURRENCY) und wird immer übernommen.
+    if (config.currency) setAppCurrency(config.currency);
+    const serverLanguage = normalizeLanguage(config.language);
+    if (serverLanguage && !getStoredLanguage()) applyLanguage(serverLanguage);
+  });
 
   return i18n;
 }

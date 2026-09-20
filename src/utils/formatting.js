@@ -1,4 +1,5 @@
 import i18n from '../i18n/index.js';
+import { getAppCurrency } from './currency.js';
 
 // Zentrale Zuordnung von App-Sprache zu Formatierungs-Locale.
 const LOCALE_BY_LANGUAGE = {
@@ -32,7 +33,7 @@ export function formatNumber(value, options = {}) {
   return new Intl.NumberFormat(getActiveLocale(), options).format(value);
 }
 
-export function formatCurrency(value, currency = 'EUR', options = {}) {
+export function formatCurrency(value, currency = getAppCurrency(), options = {}) {
   return new Intl.NumberFormat(getActiveLocale(), {
     style: 'currency',
     currency,

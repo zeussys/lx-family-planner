@@ -89,7 +89,7 @@ function localDateKey(date = new Date()) {
 }
 
 function euro(cents = 0) {
-  return formatCurrency(Number(cents || 0) / 100, 'EUR');
+  return formatCurrency(Number(cents || 0) / 100);
 }
 
 function lastSevenDateKeys() {

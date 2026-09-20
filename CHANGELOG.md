@@ -6,6 +6,11 @@ German version: [CHANGELOG.de.md](CHANGELOG.de.md)
 
 ## [Unreleased]
 
+### Added
+
+- `LX_CURRENCY` sets the currency for pocket money and other amounts
+  (ISO 4217, default `EUR`), for both the app and server notifications.
+
 ## [1.21.2] — 2026-09-17
 
 ### More reliable daily planning

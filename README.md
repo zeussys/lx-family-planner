@@ -222,6 +222,11 @@ Dutch and Polish** before login and in the main header. The choice stays on the
 device. Set `APP_LANGUAGE=en` (or another supported language code) to choose
 the default for a new installation and server-generated notifications.
 
+Pocket money and other amounts use euros by default. Set `LX_CURRENCY` to any
+ISO 4217 code, for example `LX_CURRENCY=AUD` or `LX_CURRENCY=CHF`, to change the
+currency for the whole installation. Number formatting follows the active
+language.
+
 Translation catalogues are key-checked during CI so a language cannot silently
 lose UI strings. Native speakers are warmly invited to improve wording through
 small, focused pull requests.

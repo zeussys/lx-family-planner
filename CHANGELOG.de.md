@@ -4,6 +4,11 @@ Alle wichtigen Änderungen am LX Family Planner werden hier festgehalten.
 
 ## [Unveröffentlicht]
 
+### Neu
+
+- `LX_CURRENCY` legt die Währung für Taschengeld und andere Beträge fest
+  (ISO 4217, Standard `EUR`) – in der App und in Server-Benachrichtigungen.
+
 ## [1.21.2] – 2026-09-17
 
 ### Verlässlicher im Familienalltag

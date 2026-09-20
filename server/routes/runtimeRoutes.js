@@ -61,6 +61,7 @@ function sha256ForFile(file) {
 export function registerRuntimeRoutes(app, {
   appVersion,
   appLanguage,
+  appCurrency = 'EUR',
   supportedLanguages,
   normalizeRequestLanguage,
   publicAppUrl,
@@ -102,6 +103,7 @@ export function registerRuntimeRoutes(app, {
     res.json({
       success: true,
       language: appLanguage,
+      currency: appCurrency,
       supportedLanguages
     });
   });

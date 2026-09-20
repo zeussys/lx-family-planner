@@ -17,6 +17,7 @@ import webPush from 'web-push';
 import { parseICalendar } from '../shared/icsCalendar.js';
 import { eventAudienceIds } from '../shared/calendarAudience.js';
 import { parseCustomThemeCss } from '../shared/customThemeCss.js';
+import { normalizeCurrencyCode } from '../shared/currency.js';
 import {
   nextBirthdayEvent,
   normalizeBirthDate
@@ -294,6 +295,15 @@ const APP_LOCALE = {
   nl: 'nl-NL',
   pl: 'pl-PL'
 }[APP_LANGUAGE] || 'de-DE';
+const APP_CURRENCY = normalizeCurrencyCode(process.env.LX_CURRENCY);
+if (
+  process.env.LX_CURRENCY &&
+  APP_CURRENCY !== String(process.env.LX_CURRENCY).trim().toUpperCase()
+) {
+  console.warn(
+    `LX_CURRENCY="${process.env.LX_CURRENCY}" is not a valid ISO 4217 code; using ${APP_CURRENCY}.`
+  );
+}
 const REGISTRATION_MODE = (() => {
   const configured = String(
     process.env.REGISTRATION_MODE || 'first-family'
@@ -2012,10 +2022,10 @@ function calendarEventBody(event, prefix = '') {
   return [prefix, event.title, details].filter(Boolean).join(' · ');
 }
 
-function euroAmount(amountCents) {
-  return new Intl.NumberFormat('de-DE', {
+function moneyAmount(amountCents) {
+  return new Intl.NumberFormat(APP_LOCALE, {
     style: 'currency',
-    currency: 'EUR'
+    currency: APP_CURRENCY
   }).format(Number(amountCents || 0) / 100);
 }
 
@@ -5855,6 +5865,7 @@ export function createApp() {
   const { availableApkRelease } = registerRuntimeRoutes(app, {
     appVersion: APP_VERSION,
     appLanguage: APP_LANGUAGE,
+    appCurrency: APP_CURRENCY,
     supportedLanguages: SUPPORTED_APP_LANGUAGES,
     normalizeRequestLanguage,
     publicAppUrl: PUBLIC_APP_URL,
@@ -7673,7 +7684,7 @@ export function createApp() {
         }
       );
       publishFamilyChange(targetFamilyId, 'pocketMoneyTransactions');
-      const amount = euroAmount(result.transaction.amountCents);
+      const amount = moneyAmount(result.transaction.amountCents);
       queueNotificationChannels(
         targetFamilyId,
         'pocketMoney',
@@ -8980,7 +8991,7 @@ export function createApp() {
         }
       );
       publishFamilyChange(req.session.familyId, 'pocketMoneyTransactions');
-      const amount = euroAmount(result.transaction.amountCents);
+      const amount = moneyAmount(result.transaction.amountCents);
       queueNotificationChannels(
         req.session.familyId,
         'pocketMoney',
