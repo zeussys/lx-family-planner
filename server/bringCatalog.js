@@ -3,23 +3,23 @@ import { shoppingItemIcon } from '../shared/shoppingItemIcons.js';
 
 const CATALOG_TTL_MS = 12 * 60 * 60 * 1000;
 const CATALOG_TIMEOUT_MS = 8_000;
-const SUPPORTED_CATALOG_LOCALES = ['de-DE', 'en-GB'];
+const SUPPORTED_CATALOG_LOCALES = ['de-DE', 'en-GB', 'fr-FR'];
 const DEFAULT_CATALOG_LOCALE = 'de-DE';
 
 const SECTION_ICONS = [
-  [/obst|gemüse|früchte|fruit|vegetable/i, '🥦'],
-  [/brot|gebäck|bread|bakery|pastr/i, '🥨'],
-  [/milch|käse|dairy|milk|cheese|egg/i, '🥛'],
-  [/fleisch|fisch|meat|fish|seafood/i, '🐟'],
-  [/zutaten|gewürze|ingredient|spice|condiment/i, '🫙'],
-  [/fertig|tiefkühl|frozen|convenience|ready/i, '❄️'],
-  [/getreide|grain|cereal|pasta/i, '🌾'],
-  [/snacks|süss|süß|sweet|candy/i, '🍫'],
-  [/getränke|tabak|beverage|drink|tobacco/i, '🧃'],
-  [/haushalt|household|cleaning/i, '🧽'],
-  [/pflege|gesundheit|care|health|hygiene/i, '🧴'],
-  [/tierbedarf|pet/i, '🐾'],
-  [/baumarkt|garten|diy|garden|hardware/i, '🌿']
+  [/obst|gemüse|früchte|fruit|vegetable|fruits|légumes/i, '🥦'],
+  [/brot|gebäck|bread|bakery|pastr|\bpain\b|pâtisserie|boulanger/i, '🥨'],
+  [/milch|käse|dairy|milk|cheese|egg|produits laitiers|fromage|laitage/i, '🥛'],
+  [/fleisch|fisch|meat|fish|seafood|viande|poisson|mer/i, '🐟'],
+  [/zutaten|gewürze|ingredient|spice|condiment|ingrédients|épices/i, '🫙'],
+  [/fertig|tiefkühl|frozen|convenience|ready|plats préparés|surgelés/i, '❄️'],
+  [/getreide|grain|cereal|pasta|céréales|pâtes|féculents/i, '🌾'],
+  [/snacks|süss|süß|sweet|candy|sucreries|bonbons|friandises/i, '🍫'],
+  [/getränke|tabak|beverage|drink|tobacco|boissons/i, '🧃'],
+  [/haushalt|household|cleaning|ménage|entretien/i, '🧽'],
+  [/pflege|gesundheit|care|health|hygiene|soins|santé|hygiène/i, '🧴'],
+  [/tierbedarf|pet|animalerie|animaux/i, '🐾'],
+  [/baumarkt|garten|diy|garden|hardware|bricolage|jardin/i, '🌿']
 ];
 
 const FALLBACK_SECTIONS_DE = [
@@ -224,6 +224,107 @@ const FALLBACK_SECTIONS_EN = [
   }
 ];
 
+const FALLBACK_SECTIONS_FR = [
+  {
+    name: 'Fruits & Légumes',
+    icon: '🥦',
+    items: [
+      'Pommes', 'Bananes', 'Poires', 'Fraises', 'Raisins', 'Citrons',
+      'Oranges', 'Avocat', 'Tomates', 'Concombres', 'Poivrons', 'Pommes de terre',
+      'Oignons', 'Ail', 'Carottes', 'Brocoli', 'Chou-fleur',
+      'Champignons', 'Salade', 'Épinards', 'Poireau', 'Ciboulette'
+    ]
+  },
+  {
+    name: 'Pain & Pâtisserie',
+    icon: '🥨',
+    items: [
+      'Pain', 'Petits pains', 'Pain de mie', 'Baguette', 'Pain croustillant',
+      'Croissants', 'Wraps'
+    ]
+  },
+  {
+    name: 'Produits laitiers',
+    icon: '🥛',
+    items: [
+      'Lait', 'Lait d\'avoine', 'Beurre', 'Margarine', 'Œufs', 'Yaourt',
+      'Fromage blanc', 'Crème', 'Crème fraîche', 'Fromage', 'Fromage à tartiner',
+      'Mozzarella', 'Feta'
+    ]
+  },
+  {
+    name: 'Viande & Poisson',
+    icon: '🐟',
+    items: [
+      'Viande hachée', 'Poulet', 'Saucisses', 'Charcuterie', 'Jambon',
+      'Saumon', 'Thon'
+    ]
+  },
+  {
+    name: 'Ingrédients & Épices',
+    icon: '🫙',
+    items: [
+      'Farine', 'Sucre', 'Sel', 'Poivre', 'Huile', 'Vinaigre', 'Ketchup',
+      'Mayonnaise', 'Moutarde', 'Concentré de tomates', 'Tomates en conserve', 'Bouillon',
+      'Levure chimique'
+    ]
+  },
+  {
+    name: 'Plats préparés & Surgelés',
+    icon: '❄️',
+    items: [
+      'Pizza surgelée', 'Frites', 'Légumes surgelés', 'Bâtonnets de poisson',
+      'Glace', 'Plat préparé'
+    ]
+  },
+  {
+    name: 'Céréales & Féculents',
+    icon: '🌾',
+    items: [
+      'Pâtes', 'Riz', 'Flocons d\'avoine', 'Muesli', 'Cornflakes', 'Couscous',
+      'Lentilles'
+    ]
+  },
+  {
+    name: 'Snacks & Sucreries',
+    icon: '🍫',
+    items: [
+      'Pâte à tartiner', 'Chocolat', 'Biscuits', 'Chips', 'Noix', 'Oursons gélifiés',
+      'Barres céréalières'
+    ]
+  },
+  {
+    name: 'Boissons',
+    icon: '🧃',
+    items: [
+      'Eau minérale', 'Jus', 'Café', 'Thé', 'Cacao', 'Limonade',
+      'Bière', 'Vin'
+    ]
+  },
+  {
+    name: 'Ménage',
+    icon: '🧽',
+    items: [
+      'Liquide vaisselle', 'Pastilles lave-vaisselle', 'Lessive',
+      'Essuie-tout', 'Papier toilette', 'Sacs poubelle', 'Papier aluminium',
+      'Papier cuisson', 'Nettoyant multi-usage', 'Éponges'
+    ]
+  },
+  {
+    name: 'Soins & Santé',
+    icon: '🧴',
+    items: [
+      'Dentifrice', 'Brosses à dents', 'Gel douche', 'Shampooing', 'Savon',
+      'Déodorant', 'Mouchoirs', 'Pansements'
+    ]
+  },
+  {
+    name: 'Animalerie',
+    icon: '🐾',
+    items: ['Croquettes chien', 'Croquettes chat', 'Litière pour chat', 'Friandises']
+  }
+];
+
 const cachedCatalogs = new Map();
 const pendingCatalogs = new Map();
 
@@ -232,7 +333,9 @@ function normalizeCatalogLocale(locale) {
   if (SUPPORTED_CATALOG_LOCALES.includes(cleaned)) return cleaned;
   return cleaned.toLowerCase().startsWith('en')
     ? 'en-GB'
-    : DEFAULT_CATALOG_LOCALE;
+    : cleaned.toLowerCase().startsWith('fr')
+      ? 'fr-FR'
+      : DEFAULT_CATALOG_LOCALE;
 }
 
 function cleanLabel(value, fallback = '') {
@@ -265,7 +368,9 @@ export function normalizeBringCatalog(
   const catalogLocale = normalizeCatalogLocale(payload?.language || locale);
   const sectionFallbackLabel = catalogLocale.startsWith('en')
     ? 'Section'
-    : 'Bereich';
+    : catalogLocale.startsWith('fr')
+      ? 'Section'
+      : 'Bereich';
   const sourceSections = Array.isArray(payload?.catalog?.sections)
     ? payload.catalog.sections
     : [];
@@ -313,7 +418,9 @@ function fallbackCatalog(locale = DEFAULT_CATALOG_LOCALE) {
   const catalogLocale = normalizeCatalogLocale(locale);
   const fallbackSections = catalogLocale === 'en-GB'
     ? FALLBACK_SECTIONS_EN
-    : FALLBACK_SECTIONS_DE;
+    : catalogLocale === 'fr-FR'
+      ? FALLBACK_SECTIONS_FR
+      : FALLBACK_SECTIONS_DE;
   return normalizeBringCatalog(
     {
       language: catalogLocale,
