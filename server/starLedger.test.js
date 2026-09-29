@@ -8,6 +8,7 @@ const testDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'lx-stars-'));
 process.env.DATABASE_FILE = path.join(testDirectory, 'family.sqlite');
 process.env.DISABLE_LEGACY_IMPORT = 'true';
 
+const TASKS = await import('./database.js');
 const {
   createFamily,
   adjustMemberStars,
@@ -103,6 +104,48 @@ test('the leaderboard ranks by stars earned, not by balance', () => {
     entries.every(entry => entry.role !== 'pet'),
     'pets are excluded'
   );
+});
+
+test('completing and un-completing a task nets out to zero earned', () => {
+  const { toggleTaskRecord, createRecord } = TASKS;
+  const task = createRecord(FAMILY, 'tasks', {
+    id: 'task-toggle',
+    title: 'Water plants',
+    familyId: FAMILY,
+    memberId: KID_B,
+    stars: 20,
+    date: '2026-09-01'
+  });
+  const beforeEarned = starLeaderboard(FAMILY, { days: 30 })
+    .find(entry => entry.memberId === KID_B).earned;
+
+  toggleTaskRecord(FAMILY, task.id, KID_B, true);
+  const afterDone = starLeaderboard(FAMILY, { days: 30 })
+    .find(entry => entry.memberId === KID_B).earned;
+  assert.ok(afterDone > beforeEarned, 'completing earns the stars');
+
+  toggleTaskRecord(FAMILY, task.id, KID_B, false);
+  const afterUndo = starLeaderboard(FAMILY, { days: 30 })
+    .find(entry => entry.memberId === KID_B).earned;
+  assert.equal(afterUndo, beforeEarned, 'un-completing removes them again');
+});
+
+test('redeeming a reward does not reduce the earned score', () => {
+  const { createRecord, redeemRewardRecord } = TASKS;
+  adjustMemberStars(FAMILY, KID_B, 60, { reason: 'Test', actorId: ADULT });
+  const earnedBefore = starLeaderboard(FAMILY, { days: 30 })
+    .find(entry => entry.memberId === KID_B).earned;
+  const reward = createRecord(FAMILY, 'rewards', {
+    id: 'reward-test',
+    title: 'Movie night',
+    familyId: FAMILY,
+    costStars: 50
+  });
+  redeemRewardRecord(FAMILY, reward.id, KID_B);
+  const after = starLeaderboard(FAMILY, { days: 30 })
+    .find(entry => entry.memberId === KID_B);
+  assert.equal(after.earned, earnedBefore, 'spending stars keeps the rank');
+  assert.ok(after.stars < 60, 'but the balance goes down');
 });
 
 test('the window excludes older entries', () => {

@@ -4400,7 +4400,9 @@ export function starLeaderboard(familyId, { days = 30 } = {}) {
       .prepare(`
         SELECT member_id, SUM(delta) AS earned
         FROM star_events
-        WHERE family_id = ? AND created_at >= ? AND delta > 0
+        WHERE family_id = ?
+          AND created_at >= ?
+          AND source IN ('task', 'adjustment')
         GROUP BY member_id
       `)
       .all(familyId, since)
