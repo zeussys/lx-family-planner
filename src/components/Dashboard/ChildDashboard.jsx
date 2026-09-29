@@ -25,7 +25,7 @@ import {
   Vote
 } from 'lucide-react';
 import { useFamily } from '../../context/FamilyContext';
-import StarPodium from './StarPodium';
+import StarPodium from './StarPodiumBoundary';
 import {
   DEFAULT_MEMBER_AVATAR,
   handleImgError

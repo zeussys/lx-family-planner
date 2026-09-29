@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFamily } from '../../context/FamilyContext';
-import StarPodium from './StarPodium';
+import StarPodium from './StarPodiumBoundary';
 import { displayShoppingItemIcon } from '../../../shared/shoppingItemIcons.js';
 import {
   eventAudienceMembers,

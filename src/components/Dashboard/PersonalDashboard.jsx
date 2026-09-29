@@ -20,7 +20,7 @@ import { displayShoppingItemIcon } from '../../../shared/shoppingItemIcons.js';
 import { initialTrashEvents } from '../Calendar/TrashCalendarView';
 import ChildDashboard from './ChildDashboard';
 import PetDashboard from './PetDashboard';
-import StarPodium from './StarPodium';
+import StarPodium from './StarPodiumBoundary';
 import HomeAssistantWidget from './HomeAssistantWidget';
 import FamilyCloudWidget from './FamilyCloudWidget';
 import DashboardCustomizer from './DashboardCustomizer';

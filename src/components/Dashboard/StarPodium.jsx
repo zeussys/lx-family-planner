@@ -40,7 +40,7 @@ export default function StarPodium({ variant = 'default', limit = 0 }) {
               alt=""
               className="star-podium-avatar"
               src={entry.avatar || DEFAULT_MEMBER_AVATAR}
-              onError={handleImgError(DEFAULT_MEMBER_AVATAR)}
+              onError={event => handleImgError(event, DEFAULT_MEMBER_AVATAR)}
             />
             <span className="star-podium-name">{entry.name}</span>
             <span className="star-podium-score">
