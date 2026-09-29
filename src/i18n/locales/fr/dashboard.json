@@ -136,7 +136,8 @@
       "chatLabel": "Radio familiale",
       "chatPrompt": "Fais un petit coucou à tout le monde !",
       "open": "Ouvrir"
-    }
+    },
+    "starPodiumTitle": "Podium des étoiles"
   },
   "personal": {
     "widgets": {
@@ -177,6 +178,11 @@
       "home-assistant": {
         "label": "Notre maison",
         "description": "Appareils, capteurs et scènes partagés depuis Home Assistant"
+      },
+      "star-podium": {
+        "label": "Podium des étoiles",
+        "description": "Qui a gagné le plus d’étoiles ces 30 derniers jours",
+        "action": "Vers les tâches"
       }
     },
     "hero": {
@@ -270,5 +276,11 @@
     "visibilityOff": "Désactivé",
     "reset": "Restaurer les valeurs par défaut",
     "done": "Terminé"
+  },
+  "starPodium": {
+    "loading": "Chargement des étoiles …",
+    "error": "Classement indisponible.",
+    "empty": "Aucune étoile collectée ces 30 derniers jours.",
+    "period": "Étoiles gagnées ces {{days}} derniers jours"
   }
 }

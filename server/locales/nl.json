@@ -326,7 +326,8 @@
     "privateAttachmentTargetNotFound": "Het doelprofiel voor de privébijlage is niet gevonden.",
     "chatAttachmentTooLarge": "Chatbijlagen mogen maximaal 100 MB zijn.",
     "chatAttachmentNotFound": "De chatbijlage is niet gevonden.",
-    "integrationCorrupted": "De integratiegegevens zijn beschadigd"
+    "integrationCorrupted": "De integratiegegevens zijn beschadigd",
+    "starEventNotFound": "Sterrenboeking niet gevonden."
   },
   "fields": {
     "attachmentId": "Bijlage-ID",
@@ -584,8 +585,8 @@
     "gotifyConnectedTitle": "LX Family is verbonden",
     "gotifyConnectedMessage": "Pushmeldingen voor jouw gezin zijn nu actief.",
     "gotifyTestTitle": "Test van LX Family",
-    "gotifyTestMessage": "Hallo {{name}}, de verbinding werkt."
-    ,"ntfyConnectedTitle": "LX Family is verbonden met ntfy",
+    "gotifyTestMessage": "Hallo {{name}}, de verbinding werkt.",
+    "ntfyConnectedTitle": "LX Family is verbonden met ntfy",
     "ntfyConnectedMessage": "Meldingen voor jouw gezin zijn nu actief via dit onderwerp.",
     "ntfyTestTitle": "Test van LX Family",
     "ntfyTestMessage": "Hallo {{name}}, ntfy kan je bereiken."

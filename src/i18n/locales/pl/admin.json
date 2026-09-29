@@ -335,5 +335,34 @@
       "hint": "Tutaj jest teraz wszystko spokojne."
     },
     "openCount": "{{count}} otwartych"
+  },
+  "starAdjust": {
+    "title": "Zmień gwiazdki",
+    "intro": "Dodawaj lub odejmuj gwiazdki z powodem, historią i możliwością cofnięcia.",
+    "member": "Profil",
+    "amount": "Gwiazdki (ujemne odejmuje)",
+    "reason": "Powód",
+    "reasonPlaceholder": "np. pomógł bez proszenia",
+    "book": "Zapisz",
+    "history": "Historia",
+    "historyEmpty": "Brak wpisów gwiazdek.",
+    "revert": "Cofnij",
+    "saved": "{{name}} ma teraz {{stars}} gwiazdek.",
+    "failed": "Nie udało się zapisać.",
+    "reverted": "Wpis cofnięty.",
+    "unknown": "Nieznany",
+    "presets": {
+      "helped": "Pomógł bez proszenia",
+      "helpedSibling": "Pomógł bratu/siostrze",
+      "askedTwice": "Trzeba było prosić dwa razy",
+      "behaviour": "Zachowanie"
+    }
+  },
+  "source": {
+    "task": "Zadanie",
+    "reward": "Nagroda",
+    "pocketMoney": "Kieszonkowe",
+    "adjustment": "Korekta",
+    "reset": "Wyzerowano"
   }
 }

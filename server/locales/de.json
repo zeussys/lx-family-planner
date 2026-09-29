@@ -326,7 +326,8 @@
     "privateAttachmentTargetNotFound": "Das Zielprofil für den privaten Anhang wurde nicht gefunden.",
     "chatAttachmentTooLarge": "Chat-Anhänge dürfen höchstens 100 MB groß sein.",
     "chatAttachmentNotFound": "Der Chat-Anhang wurde nicht gefunden.",
-    "integrationCorrupted": "Integration ist beschädigt"
+    "integrationCorrupted": "Integration ist beschädigt",
+    "starEventNotFound": "Sternebuchung nicht gefunden."
   },
   "fields": {
     "attachmentId": "Anhang-ID",
@@ -584,8 +585,8 @@
     "gotifyConnectedTitle": "LX Family ist verbunden",
     "gotifyConnectedMessage": "Push-Benachrichtigungen für eure Familie sind jetzt aktiv.",
     "gotifyTestTitle": "Test von LX Family",
-    "gotifyTestMessage": "Hallo {{name}}, die Verbindung funktioniert."
-    ,"ntfyConnectedTitle": "LX Family ist mit ntfy verbunden",
+    "gotifyTestMessage": "Hallo {{name}}, die Verbindung funktioniert.",
+    "ntfyConnectedTitle": "LX Family ist mit ntfy verbunden",
     "ntfyConnectedMessage": "Benachrichtigungen für eure Familie sind jetzt über dieses Topic aktiv.",
     "ntfyTestTitle": "Test von LX Family",
     "ntfyTestMessage": "Hallo {{name}}, ntfy kann dich erreichen."

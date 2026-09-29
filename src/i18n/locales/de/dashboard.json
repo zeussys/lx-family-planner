@@ -136,7 +136,8 @@
       "chatLabel": "Familienfunk",
       "chatPrompt": "Sag allen kurz Hallo!",
       "open": "Öffnen"
-    }
+    },
+    "starPodiumTitle": "Sterne-Podium"
   },
   "personal": {
     "widgets": {
@@ -177,6 +178,11 @@
       "home-assistant": {
         "label": "Unser Zuhause",
         "description": "Freigegebene Geräte, Sensoren und Szenen aus Home Assistant"
+      },
+      "star-podium": {
+        "label": "Sterne-Podium",
+        "description": "Wer hat in den letzten 30 Tagen die meisten Sterne gesammelt",
+        "action": "Zu den Aufgaben"
       }
     },
     "hero": {
@@ -270,5 +276,11 @@
     "visibilityOff": "Aus",
     "reset": "Standard wiederherstellen",
     "done": "Fertig"
+  },
+  "starPodium": {
+    "loading": "Sterne werden geladen …",
+    "error": "Bestenliste nicht verfügbar.",
+    "empty": "In den letzten 30 Tagen wurden noch keine Sterne gesammelt.",
+    "period": "Verdiente Sterne der letzten {{days}} Tage"
   }
 }

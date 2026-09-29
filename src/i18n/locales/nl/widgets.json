@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Huisbediening",
         "description": "Apparaten, sensoren en scènes als grote tablettegels"
+      },
+      "starPodium": {
+        "label": "Sterrenpodium",
+        "description": "Wie de afgelopen 30 dagen de meeste sterren verzamelde"
       }
     },
     "household": {

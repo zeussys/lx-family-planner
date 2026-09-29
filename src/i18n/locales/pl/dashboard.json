@@ -136,7 +136,8 @@
       "chatLabel": "Rodzinne radio",
       "chatPrompt": "Wyślij wszystkim szybkie cześć!",
       "open": "Otwórz"
-    }
+    },
+    "starPodiumTitle": "Podium gwiazdek"
   },
   "personal": {
     "widgets": {
@@ -177,6 +178,11 @@
       "home-assistant": {
         "label": "Nasz dom",
         "description": "Współdzielone urządzenia, czujniki i sceny z Home Assistant"
+      },
+      "star-podium": {
+        "label": "Podium gwiazdek",
+        "description": "Kto zebrał najwięcej gwiazdek w ostatnich 30 dniach",
+        "action": "Do zadań"
       }
     },
     "hero": {
@@ -270,5 +276,11 @@
     "visibilityOff": "Wyłączone",
     "reset": "Przywróć domyślne",
     "done": "Gotowe"
+  },
+  "starPodium": {
+    "loading": "Wczytywanie gwiazdek …",
+    "error": "Ranking niedostępny.",
+    "empty": "W ostatnich 30 dniach nie zebrano jeszcze gwiazdek.",
+    "period": "Gwiazdki zdobyte w ostatnich {{days}} dniach"
   }
 }

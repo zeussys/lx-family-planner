@@ -335,5 +335,34 @@
       "hint": "Por aquí todo está tranquilo ahora mismo."
     },
     "openCount": "{{count}} abiertos"
+  },
+  "starAdjust": {
+    "title": "Ajustar estrellas",
+    "intro": "Añade o resta estrellas con un motivo, historial y opción de deshacer.",
+    "member": "Perfil",
+    "amount": "Estrellas (negativo para restar)",
+    "reason": "Motivo",
+    "reasonPlaceholder": "p. ej. ayudó sin que se lo pidieran",
+    "book": "Registrar",
+    "history": "Historial",
+    "historyEmpty": "Todavía no hay movimientos.",
+    "revert": "Deshacer",
+    "saved": "{{name}} tiene ahora {{stars}} estrellas.",
+    "failed": "No se pudo registrar.",
+    "reverted": "Movimiento deshecho.",
+    "unknown": "Desconocido",
+    "presets": {
+      "helped": "Ayudó sin que se lo pidieran",
+      "helpedSibling": "Ayudó a su hermano/hermana",
+      "askedTwice": "Hubo que pedírselo dos veces",
+      "behaviour": "Comportamiento"
+    }
+  },
+  "source": {
+    "task": "Tarea",
+    "reward": "Recompensa",
+    "pocketMoney": "Paga",
+    "adjustment": "Corrección",
+    "reset": "Restablecido"
   }
 }

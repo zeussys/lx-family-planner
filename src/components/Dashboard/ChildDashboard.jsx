@@ -25,6 +25,7 @@ import {
   Vote
 } from 'lucide-react';
 import { useFamily } from '../../context/FamilyContext';
+import StarPodium from './StarPodium';
 import {
   DEFAULT_MEMBER_AVATAR,
   handleImgError
@@ -666,6 +667,15 @@ export default function ChildDashboard() {
             </button>
           ))}
         </div>
+      </section>
+
+      <section className="child-panel child-star-podium">
+        <header>
+          <div>
+            <h2><Trophy size={22} /> {t('child.starPodiumTitle')}</h2>
+          </div>
+        </header>
+        <StarPodium limit={5} variant="child" />
       </section>
 
       <section className="child-family-strip">

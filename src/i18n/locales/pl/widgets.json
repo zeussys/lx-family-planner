@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Sterowanie domem",
         "description": "Urządzenia, czujniki i sceny jako duże kafelki na tablecie"
+      },
+      "starPodium": {
+        "label": "Podium gwiazdek",
+        "description": "Kto zebrał najwięcej gwiazdek w ostatnich 30 dniach"
       }
     },
     "household": {

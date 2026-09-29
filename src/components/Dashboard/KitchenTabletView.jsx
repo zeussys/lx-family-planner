@@ -14,10 +14,12 @@ import {
   Star,
   Trash2,
   Users,
-  UtensilsCrossed
+  UtensilsCrossed,
+  Trophy
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFamily } from '../../context/FamilyContext';
+import StarPodium from './StarPodium';
 import { displayShoppingItemIcon } from '../../../shared/shoppingItemIcons.js';
 import {
   eventAudienceMembers,
@@ -52,6 +54,13 @@ import {
 } from '../../utils/formatting';
 
 const TABLET_WIDGETS = [
+  {
+    id: 'star-podium',
+    labelKey: 'kitchen.widgets.starPodium.label',
+    descriptionKey: 'kitchen.widgets.starPodium.description',
+    icon: Trophy,
+    color: '#a37b1f'
+  },
   {
     id: 'calendar',
     labelKey: 'kitchen.widgets.calendar.label',
@@ -604,6 +613,17 @@ export default function KitchenTabletView() {
               <span>{t('kitchen.cards.chat.empty')}</span>
             </div>
           )}
+        </TabletCard>
+
+        <TabletCard
+          widgetId="star-podium"
+          tab="tasks"
+          icon={Trophy}
+          title={t('kitchen.widgets.starPodium.label')}
+          tone="board"
+          onOpen={setActiveTab}
+        >
+          <StarPodium limit={5} variant="wall" />
         </TabletCard>
 
         <TabletCard

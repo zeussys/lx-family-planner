@@ -335,5 +335,34 @@
       "hint": "Everything is quiet here right now."
     },
     "openCount": "{{count}} open"
+  },
+  "starAdjust": {
+    "title": "Adjust stars",
+    "intro": "Add or deduct stars with a reason, a history and a way to undo.",
+    "member": "Profile",
+    "amount": "Stars (negative to deduct)",
+    "reason": "Reason",
+    "reasonPlaceholder": "e.g. helped without being asked",
+    "book": "Book",
+    "history": "History",
+    "historyEmpty": "No star entries yet.",
+    "revert": "Undo",
+    "saved": "{{name}} now has {{stars}} stars.",
+    "failed": "Could not save the entry.",
+    "reverted": "Entry reverted.",
+    "unknown": "Unknown",
+    "presets": {
+      "helped": "Helped without being asked",
+      "helpedSibling": "Helped brother/sister",
+      "askedTwice": "Had to be asked twice",
+      "behaviour": "Behaviour"
+    }
+  },
+  "source": {
+    "task": "Task",
+    "reward": "Reward",
+    "pocketMoney": "Pocket money",
+    "adjustment": "Adjustment",
+    "reset": "Reset"
   }
 }

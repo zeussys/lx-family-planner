@@ -761,6 +761,28 @@ applySchemaMigration(18, 'Papierkorb fuer wiederherstellbare Familieninhalte', (
   `);
 });
 
+applySchemaMigration(19, 'Sternekonto mit Verlauf und Korrekturen', () => {
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS star_events (
+      id TEXT PRIMARY KEY,
+      family_id TEXT NOT NULL,
+      member_id TEXT NOT NULL,
+      delta INTEGER NOT NULL,
+      balance_after INTEGER NOT NULL,
+      source TEXT NOT NULL,
+      reason TEXT NOT NULL DEFAULT '',
+      actor_id TEXT NOT NULL DEFAULT '',
+      reverted_at INTEGER,
+      created_at INTEGER NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_star_events_member
+      ON star_events(family_id, member_id, created_at);
+    CREATE INDEX IF NOT EXISTS idx_star_events_created
+      ON star_events(family_id, created_at);
+  `);
+});
+
+
 function withTransaction(work) {
   database.exec('BEGIN IMMEDIATE');
   try {
@@ -1206,6 +1228,14 @@ export function createPocketMoneyTransaction(
           WHERE family_id = ? AND id = ?
         `)
         .run(starCost, now, familyId, memberId);
+      recordStarEvent({
+        familyId,
+        memberId,
+        delta: -starCost,
+        balanceAfter: Math.max(0, Number(existing.stars || 0) - starCost),
+        source: 'pocketMoney',
+        reason: String(transaction?.note || '')
+      });
     }
     const normalized = normalizeRecord(
       'pocketMoneyTransactions',
@@ -3948,6 +3978,14 @@ function updateTaskMemberStars(
       WHERE family_id = ? AND id = ?
     `)
     .run(nextStars, Date.now(), familyId, memberId);
+  recordStarEvent({
+    familyId,
+    memberId,
+    delta: nextStars - Number(existingMember.stars || 0),
+    balanceAfter: nextStars,
+    source: 'task',
+    reason: String(task?.title || '')
+  });
   return getMember(familyId, memberId);
 }
 
@@ -4204,6 +4242,192 @@ export function reviewTaskRecord(
   });
 }
 
+// --- Sternekonto: Verlauf, Korrekturen und Bestenliste --------------------
+export const STAR_SOURCES = [
+  'task',
+  'reward',
+  'pocketMoney',
+  'adjustment',
+  'reset'
+];
+
+function recordStarEvent({
+  familyId,
+  memberId,
+  delta,
+  balanceAfter,
+  source,
+  reason = '',
+  actorId = ''
+}) {
+  if (!familyId || !memberId || !Number(delta)) return null;
+  const id = randomUUID();
+  database
+    .prepare(`
+      INSERT INTO star_events(
+        id, family_id, member_id, delta, balance_after,
+        source, reason, actor_id, created_at
+      ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `)
+    .run(
+      id,
+      familyId,
+      memberId,
+      Math.trunc(Number(delta)),
+      Math.max(0, Math.trunc(Number(balanceAfter || 0))),
+      STAR_SOURCES.includes(source) ? source : 'adjustment',
+      String(reason || '').slice(0, 200),
+      String(actorId || ''),
+      Date.now()
+    );
+  return id;
+}
+
+function mapStarEvent(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    memberId: row.member_id,
+    delta: row.delta,
+    balanceAfter: row.balance_after,
+    source: row.source,
+    reason: row.reason || '',
+    actorId: row.actor_id || '',
+    revertedAt: row.reverted_at || null,
+    createdAt: row.created_at
+  };
+}
+
+// Sterne gutschreiben oder abziehen; das Guthaben bleibt bei 0 stehen.
+export function adjustMemberStars(
+  familyId,
+  memberId,
+  delta,
+  { reason = '', actorId = '', source = 'adjustment' } = {}
+) {
+  const amount = Math.trunc(Number(delta) || 0);
+  if (!amount || Math.abs(amount) > 1000) {
+    const error = new Error('Bitte eine gueltige Sterneanzahl angeben.');
+    error.statusCode = 400;
+    throw error;
+  }
+  return withTransaction(() => {
+    const existing = getMemberAuthRow(familyId, memberId);
+    if (!existing) return null;
+    const before = Math.max(0, Number(existing.stars || 0));
+    const after = Math.max(0, before + amount);
+    const applied = after - before;
+    database
+      .prepare(`
+        UPDATE members SET stars = ?, updated_at = ?
+        WHERE family_id = ? AND id = ?
+      `)
+      .run(after, Date.now(), familyId, memberId);
+    const eventId = applied
+      ? recordStarEvent({
+          familyId,
+          memberId,
+          delta: applied,
+          balanceAfter: after,
+          source,
+          reason,
+          actorId
+        })
+      : null;
+    bumpFamilyVersion(familyId);
+    return {
+      member: getMember(familyId, memberId),
+      event: eventId ? getStarEvent(familyId, eventId) : null,
+      requested: amount,
+      applied
+    };
+  });
+}
+
+export function getStarEvent(familyId, eventId) {
+  return mapStarEvent(
+    database
+      .prepare('SELECT * FROM star_events WHERE family_id = ? AND id = ?')
+      .get(familyId, eventId)
+  );
+}
+
+export function listStarEvents(familyId, { memberId = '', limit = 50 } = {}) {
+  const max = Math.max(1, Math.min(200, Number(limit) || 50));
+  const rows = memberId
+    ? database
+        .prepare(`
+          SELECT * FROM star_events
+          WHERE family_id = ? AND member_id = ?
+          ORDER BY created_at DESC LIMIT ?
+        `)
+        .all(familyId, memberId, max)
+    : database
+        .prepare(`
+          SELECT * FROM star_events
+          WHERE family_id = ?
+          ORDER BY created_at DESC LIMIT ?
+        `)
+        .all(familyId, max);
+  return rows.map(mapStarEvent);
+}
+
+// Korrektur zuruecknehmen: Gegenbuchung, der Eintrag bleibt im Verlauf.
+export function revertStarEvent(familyId, eventId, { actorId = '' } = {}) {
+  const event = getStarEvent(familyId, eventId);
+  if (!event || event.revertedAt) return null;
+  const result = adjustMemberStars(familyId, event.memberId, -event.delta, {
+    reason: event.reason,
+    actorId,
+    source: 'adjustment'
+  });
+  if (!result) return null;
+  database
+    .prepare('UPDATE star_events SET reverted_at = ? WHERE family_id = ? AND id = ?')
+    .run(Date.now(), familyId, eventId);
+  return {
+    ...result,
+    revertedEvent: getStarEvent(familyId, eventId)
+  };
+}
+
+// Bestenliste: in einem Zeitfenster verdiente Sterne je Profil.
+export function starLeaderboard(familyId, { days = 30 } = {}) {
+  const window = Math.max(1, Math.min(365, Number(days) || 30));
+  const since = Date.now() - window * 24 * 60 * 60 * 1000;
+  const earned = new Map(
+    database
+      .prepare(`
+        SELECT member_id, SUM(delta) AS earned
+        FROM star_events
+        WHERE family_id = ? AND created_at >= ? AND delta > 0
+        GROUP BY member_id
+      `)
+      .all(familyId, since)
+      .map(row => [row.member_id, Math.max(0, Number(row.earned || 0))])
+  );
+  return getMembers(familyId)
+    .filter(member => member.role !== 'pet')
+    .map(member => ({
+      memberId: member.id,
+      name: member.name,
+      role: member.role,
+      color: member.color,
+      avatar: member.avatar,
+      stars: Math.max(0, Number(member.stars || 0)),
+      earned: earned.get(member.id) || 0
+    }))
+    .sort((a, b) => b.earned - a.earned || b.stars - a.stars ||
+      a.name.localeCompare(b.name))
+    .map((entry, index, all) => ({
+      ...entry,
+      rank:
+        index > 0 && all[index - 1].earned === entry.earned
+          ? all[index - 1].rank
+          : index + 1
+    }));
+}
+
 export function redeemRewardRecord(familyId, rewardId, memberId) {
   return withTransaction(() => {
     const reward = getRecord(familyId, 'rewards', rewardId);
@@ -4221,6 +4445,14 @@ export function redeemRewardRecord(familyId, rewardId, memberId) {
         WHERE family_id = ? AND id = ?
       `)
       .run(Number(memberRow.stars) - cost, Date.now(), familyId, memberId);
+    recordStarEvent({
+      familyId,
+      memberId,
+      delta: -cost,
+      balanceAfter: Number(memberRow.stars) - cost,
+      source: 'reward',
+      reason: String(reward?.title || reward?.name || '')
+    });
     bumpFamilyVersion(familyId);
     return {
       reward,

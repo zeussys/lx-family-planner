@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Controllo casa",
         "description": "Dispositivi, sensori e scene come grandi riquadri tablet"
+      },
+      "starPodium": {
+        "label": "Podio delle stelle",
+        "description": "Chi ha raccolto più stelle negli ultimi 30 giorni"
       }
     },
     "household": {

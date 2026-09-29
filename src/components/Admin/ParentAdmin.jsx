@@ -43,6 +43,7 @@ import NtfySettings from './NtfySettings';
 import HomeAssistantSettings from './HomeAssistantSettings';
 import NextcloudSettings from './NextcloudSettings';
 import WebDavSettings from './WebDavSettings';
+import StarAdjustments from './StarAdjustments';
 import DatabaseBackupSettings from './DatabaseBackupSettings';
 import RecycleBinSettings from './RecycleBinSettings';
 import FamilyTransferSettings from './FamilyTransferSettings';
@@ -583,6 +584,7 @@ export default function ParentAdmin({ onOpenFamilyTree }) {
           </div>
         </section>
 
+        <StarAdjustments />
         <DatabaseBackupSettings />
         <RecycleBinSettings />
         <FamilyTransferSettings />

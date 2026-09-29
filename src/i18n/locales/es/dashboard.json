@@ -136,7 +136,8 @@
       "chatLabel": "Radio familiar",
       "chatPrompt": "¡Saluda rápido a todos!",
       "open": "Abrir"
-    }
+    },
+    "starPodiumTitle": "Podio de estrellas"
   },
   "personal": {
     "widgets": {
@@ -177,6 +178,11 @@
       "home-assistant": {
         "label": "Nuestro hogar",
         "description": "Dispositivos, sensores y escenas compartidas de Home Assistant"
+      },
+      "star-podium": {
+        "label": "Podio de estrellas",
+        "description": "Quién ha conseguido más estrellas en los últimos 30 días",
+        "action": "A las tareas"
       }
     },
     "hero": {
@@ -270,5 +276,11 @@
     "visibilityOff": "Desactivado",
     "reset": "Restaurar valores por defecto",
     "done": "Hecho"
+  },
+  "starPodium": {
+    "loading": "Cargando estrellas …",
+    "error": "Clasificación no disponible.",
+    "empty": "Aún no se han conseguido estrellas en los últimos 30 días.",
+    "period": "Estrellas ganadas en los últimos {{days}} días"
   }
 }

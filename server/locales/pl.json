@@ -326,7 +326,8 @@
     "privateAttachmentTargetNotFound": "Nie znaleziono profilu docelowego dla prywatnego załącznika.",
     "chatAttachmentTooLarge": "Załączniki czatu mogą mieć maksymalnie 100 MB.",
     "chatAttachmentNotFound": "Nie znaleziono załącznika czatu.",
-    "integrationCorrupted": "Dane integracji są uszkodzone"
+    "integrationCorrupted": "Dane integracji są uszkodzone",
+    "starEventNotFound": "Nie znaleziono wpisu gwiazdek."
   },
   "fields": {
     "attachmentId": "Identyfikator załącznika",
@@ -584,8 +585,8 @@
     "gotifyConnectedTitle": "LX Family jest połączony",
     "gotifyConnectedMessage": "Powiadomienia push dla Twojej rodziny są teraz aktywne.",
     "gotifyTestTitle": "Test z LX Family",
-    "gotifyTestMessage": "Cześć {{name}}, połączenie działa."
-    ,"ntfyConnectedTitle": "LX Family połączony z ntfy",
+    "gotifyTestMessage": "Cześć {{name}}, połączenie działa.",
+    "ntfyConnectedTitle": "LX Family połączony z ntfy",
     "ntfyConnectedMessage": "Powiadomienia dla Twojej rodziny są teraz aktywne przez ten temat.",
     "ntfyTestTitle": "Test z LX Family",
     "ntfyTestMessage": "Cześć {{name}}, ntfy może się z Tobą skontaktować."

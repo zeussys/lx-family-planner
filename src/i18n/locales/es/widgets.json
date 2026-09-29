@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Control del hogar",
         "description": "Dispositivos, sensores y escenas como grandes baldosas para tablet"
+      },
+      "starPodium": {
+        "label": "Podio de estrellas",
+        "description": "Quién ha conseguido más estrellas en los últimos 30 días"
       }
     },
     "household": {

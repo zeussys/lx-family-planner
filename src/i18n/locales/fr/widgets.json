@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Contrôle maison",
         "description": "Appareils, capteurs et scènes en grandes tuiles tablette"
+      },
+      "starPodium": {
+        "label": "Podium des étoiles",
+        "description": "Qui a gagné le plus d’étoiles ces 30 derniers jours"
       }
     },
     "household": {

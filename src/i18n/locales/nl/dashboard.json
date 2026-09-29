@@ -136,7 +136,8 @@
       "chatLabel": "Gezinsradio",
       "chatPrompt": "Zeg even gedag tegen iedereen!",
       "open": "Openen"
-    }
+    },
+    "starPodiumTitle": "Sterrenpodium"
   },
   "personal": {
     "widgets": {
@@ -177,6 +178,11 @@
       "home-assistant": {
         "label": "Ons huis",
         "description": "Gedeelde apparaten, sensoren en scènes uit Home Assistant"
+      },
+      "star-podium": {
+        "label": "Sterrenpodium",
+        "description": "Wie de afgelopen 30 dagen de meeste sterren verzamelde",
+        "action": "Naar de taken"
       }
     },
     "hero": {
@@ -270,5 +276,11 @@
     "visibilityOff": "Uit",
     "reset": "Standaard herstellen",
     "done": "Klaar"
+  },
+  "starPodium": {
+    "loading": "Sterren laden …",
+    "error": "Ranglijst niet beschikbaar.",
+    "empty": "De afgelopen 30 dagen zijn er nog geen sterren verzameld.",
+    "period": "Verdiende sterren van de afgelopen {{days}} dagen"
   }
 }

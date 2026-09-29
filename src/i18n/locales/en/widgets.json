@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Home control",
         "description": "Devices, sensors and scenes as large tablet tiles"
+      },
+      "starPodium": {
+        "label": "Star podium",
+        "description": "Who collected the most stars in the last 30 days"
       }
     },
     "household": {

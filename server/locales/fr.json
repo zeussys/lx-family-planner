@@ -326,7 +326,8 @@
     "privateAttachmentTargetNotFound": "Le profil cible de la pièce jointe privée est introuvable.",
     "chatAttachmentTooLarge": "Les pièces jointes de discussion peuvent faire au maximum 100 Mo.",
     "chatAttachmentNotFound": "La pièce jointe de discussion est introuvable.",
-    "integrationCorrupted": "Les données d'intégration sont corrompues"
+    "integrationCorrupted": "Les données d'intégration sont corrompues",
+    "starEventNotFound": "Écriture d’étoiles introuvable."
   },
   "fields": {
     "attachmentId": "ID de pièce jointe",
@@ -584,8 +585,8 @@
     "gotifyConnectedTitle": "LX Family est connecté",
     "gotifyConnectedMessage": "Les notifications push pour votre famille sont maintenant actives.",
     "gotifyTestTitle": "Test depuis LX Family",
-    "gotifyTestMessage": "Bonjour {{name}}, la connexion fonctionne."
-    ,"ntfyConnectedTitle": "LX Family est connecté à ntfy",
+    "gotifyTestMessage": "Bonjour {{name}}, la connexion fonctionne.",
+    "ntfyConnectedTitle": "LX Family est connecté à ntfy",
     "ntfyConnectedMessage": "Les notifications pour votre famille sont maintenant actives via ce sujet.",
     "ntfyTestTitle": "Test depuis LX Family",
     "ntfyTestMessage": "Bonjour {{name}}, ntfy peut vous joindre."

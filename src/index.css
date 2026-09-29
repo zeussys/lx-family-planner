@@ -25389,3 +25389,175 @@ body:has(.modal-backdrop) .problem-report-launcher {
   from { opacity: 0; transform: translateX(-16px) scale(0.985); }
   to { opacity: 1; transform: translateX(0) scale(1); }
 }
+
+/* --- Sterne-Podium ------------------------------------------------------ */
+.star-podium-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.star-podium-list li {
+  align-items: center;
+  background: color-mix(in srgb, var(--member-color) 12%, transparent);
+  border-left: 4px solid var(--member-color);
+  border-radius: 0.7rem;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.star-podium-list li.is-podium {
+  background: color-mix(in srgb, var(--member-color) 20%, transparent);
+}
+
+.star-podium-rank {
+  font-size: 1.15rem;
+  min-width: 1.6rem;
+  text-align: center;
+}
+
+.star-podium-avatar {
+  border-radius: 50%;
+  height: 2rem;
+  object-fit: cover;
+  width: 2rem;
+}
+
+.star-podium-name {
+  flex: 1;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.star-podium-score {
+  align-items: center;
+  display: flex;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  gap: 0.25rem;
+}
+
+.star-podium-footnote,
+.star-podium-hint {
+  align-items: center;
+  display: flex;
+  font-size: 0.8rem;
+  gap: 0.35rem;
+  margin: 0.6rem 0 0;
+  opacity: 0.75;
+}
+
+/* Wandanzeige: aus mehreren Metern lesbar. */
+.star-podium-wall .star-podium-list li {
+  gap: 0.9rem;
+  padding: 0.7rem 1rem;
+}
+
+.star-podium-wall .star-podium-rank { font-size: 1.9rem; min-width: 2.6rem; }
+.star-podium-wall .star-podium-avatar { height: 3rem; width: 3rem; }
+.star-podium-wall .star-podium-name { font-size: 1.5rem; }
+.star-podium-wall .star-podium-score { font-size: 1.6rem; }
+.star-podium-wall .star-podium-footnote { font-size: 1rem; }
+
+.star-podium-child .star-podium-rank { font-size: 1.5rem; }
+.star-podium-child .star-podium-name { font-size: 1.1rem; }
+.star-podium-child .star-podium-score { font-size: 1.2rem; }
+
+/* --- Sterne anpassen (Elternbereich) ------------------------------------ */
+.star-adjust-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.star-adjust-presets {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.star-adjust-presets button {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  gap: 0.15rem;
+  min-height: 3.2rem;
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+}
+
+.star-adjust-presets button small {
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.star-adjust-presets .is-positive { border-left: 4px solid #2f8f5b; }
+.star-adjust-presets .is-negative { border-left: 4px solid #b4553f; }
+
+.star-adjust-custom {
+  align-items: end;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: minmax(6rem, 1fr) minmax(10rem, 2fr) auto;
+}
+
+.star-adjust-history-title {
+  font-size: 1rem;
+  margin: 1.2rem 0 0.5rem;
+}
+
+.star-adjust-history {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  max-height: 22rem;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.star-adjust-history li {
+  align-items: center;
+  border-radius: 0.6rem;
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.45rem 0.6rem;
+}
+
+.star-adjust-history li:nth-child(odd) {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.star-adjust-history li.is-reverted {
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+
+.star-adjust-history b {
+  font-variant-numeric: tabular-nums;
+  min-width: 2.6rem;
+  text-align: right;
+}
+
+.star-adjust-history b.is-positive { color: #2f8f5b; }
+.star-adjust-history b.is-negative { color: #b4553f; }
+
+.star-adjust-history span {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.star-adjust-history small { opacity: 0.75; }
+
+@media (max-width: 640px) {
+  .star-adjust-custom { grid-template-columns: 1fr; }
+}

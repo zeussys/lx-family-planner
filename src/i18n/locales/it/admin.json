@@ -335,5 +335,34 @@
       "hint": "Qui è tutto tranquillo in questo momento."
     },
     "openCount": "{{count}} aperte"
+  },
+  "starAdjust": {
+    "title": "Modifica stelle",
+    "intro": "Aggiungi o togli stelle con motivo, cronologia e possibilità di annullare.",
+    "member": "Profilo",
+    "amount": "Stelle (negativo per togliere)",
+    "reason": "Motivo",
+    "reasonPlaceholder": "es. ha aiutato senza che glielo chiedessero",
+    "book": "Registra",
+    "history": "Cronologia",
+    "historyEmpty": "Ancora nessun movimento.",
+    "revert": "Annulla",
+    "saved": "{{name}} ora ha {{stars}} stelle.",
+    "failed": "Registrazione non riuscita.",
+    "reverted": "Movimento annullato.",
+    "unknown": "Sconosciuto",
+    "presets": {
+      "helped": "Ha aiutato senza che glielo chiedessero",
+      "helpedSibling": "Ha aiutato il fratello/la sorella",
+      "askedTwice": "È stato necessario chiederlo due volte",
+      "behaviour": "Comportamento"
+    }
+  },
+  "source": {
+    "task": "Attività",
+    "reward": "Premio",
+    "pocketMoney": "Paghetta",
+    "adjustment": "Correzione",
+    "reset": "Azzerato"
   }
 }

@@ -137,6 +137,10 @@ import {
   getMember,
   getMemberAuthRow,
   getMembers,
+  adjustMemberStars,
+  listStarEvents,
+  revertStarEvent,
+  starLeaderboard,
   getRecord,
   getSession,
   listPublicFamilies,
@@ -8081,6 +8085,81 @@ export function createApp() {
       version: getFamilyVersion(req.session.familyId)
     });
   });
+
+  // --- Sternekonto: Korrekturen, Verlauf und Bestenliste ------------------
+  app.get('/api/stars/leaderboard', requireAuth, (req, res) => {
+    const days = Math.max(1, Math.min(365, Number(req.query?.days) || 30));
+    res.json({
+      success: true,
+      days,
+      entries: starLeaderboard(req.session.familyId, { days })
+    });
+  });
+
+  app.get('/api/stars/events', requireAuth, requireAdult, (req, res) => {
+    res.json({
+      success: true,
+      events: listStarEvents(req.session.familyId, {
+        memberId: cleanText(req.query?.memberId, '', 100),
+        limit: Number(req.query?.limit) || 50
+      })
+    });
+  });
+
+  app.post('/api/stars/adjust', requireAuth, requireAdult, (req, res) => {
+    const memberId = cleanText(req.body?.memberId, '', 100);
+    const target = getMember(req.session.familyId, memberId);
+    if (!target || target.role === 'pet') {
+      return res.status(404).json({
+        success: false,
+        error: translate('errors.profileNotFound')
+      });
+    }
+    const result = adjustMemberStars(
+      req.session.familyId,
+      memberId,
+      Number(req.body?.delta),
+      {
+        reason: cleanText(req.body?.reason, '', 200),
+        actorId: req.session.memberId
+      }
+    );
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        error: translate('errors.profileNotFound')
+      });
+    }
+    res.json({
+      success: true,
+      ...result,
+      version: getFamilyVersion(req.session.familyId)
+    });
+  });
+
+  app.post(
+    '/api/stars/events/:eventId/revert',
+    requireAuth,
+    requireAdult,
+    (req, res) => {
+      const result = revertStarEvent(
+        req.session.familyId,
+        req.params.eventId,
+        { actorId: req.session.memberId }
+      );
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          error: translate('errors.starEventNotFound')
+        });
+      }
+      res.json({
+        success: true,
+        ...result,
+        version: getFamilyVersion(req.session.familyId)
+      });
+    }
+  );
 
   app.post(
     '/api/admin/members/:memberId/reset-stars',

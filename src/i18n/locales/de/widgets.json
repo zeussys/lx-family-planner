@@ -36,6 +36,10 @@
       "homeAssistant": {
         "label": "Haussteuerung",
         "description": "Geräte, Sensoren und Szenen als große Tablet-Kacheln"
+      },
+      "starPodium": {
+        "label": "Sterne-Podium",
+        "description": "Wer hat in den letzten 30 Tagen die meisten Sterne gesammelt"
       }
     },
     "household": {

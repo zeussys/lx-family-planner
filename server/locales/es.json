@@ -326,7 +326,8 @@
     "privateAttachmentTargetNotFound": "No se encontró el perfil de destino del archivo adjunto privado.",
     "chatAttachmentTooLarge": "Los archivos adjuntos del chat pueden ser de como máximo 100 MB.",
     "chatAttachmentNotFound": "No se encontró el archivo adjunto del chat.",
-    "integrationCorrupted": "Los datos de la integración están dañados"
+    "integrationCorrupted": "Los datos de la integración están dañados",
+    "starEventNotFound": "Movimiento de estrellas no encontrado."
   },
   "fields": {
     "attachmentId": "ID del archivo adjunto",

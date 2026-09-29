@@ -12,13 +12,15 @@ import {
   ShoppingBag,
   Star,
   Trash2,
-  UtensilsCrossed
+  UtensilsCrossed,
+  Trophy
 } from 'lucide-react';
 import { useFamily } from '../../context/FamilyContext';
 import { displayShoppingItemIcon } from '../../../shared/shoppingItemIcons.js';
 import { initialTrashEvents } from '../Calendar/TrashCalendarView';
 import ChildDashboard from './ChildDashboard';
 import PetDashboard from './PetDashboard';
+import StarPodium from './StarPodium';
 import HomeAssistantWidget from './HomeAssistantWidget';
 import FamilyCloudWidget from './FamilyCloudWidget';
 import DashboardCustomizer from './DashboardCustomizer';
@@ -61,7 +63,8 @@ const ADULT_WIDGETS = [
   { id: 'trash', icon: Trash2, color: '#66736e' },
   { id: 'board', icon: Pin, color: '#a65a3f' },
   { id: 'cloud', icon: Cloud, color: '#177f7b' },
-  { id: 'home-assistant', icon: Home, color: '#2f7c73' }
+  { id: 'home-assistant', icon: Home, color: '#2f7c73' },
+  { id: 'star-podium', icon: Trophy, color: '#a37b1f' }
 ];
 
 // Gespeicherte Schlüssel im Speiseplan (meal.meal) bleiben deutsch –
@@ -594,6 +597,20 @@ export default function PersonalDashboard() {
             <FamilyCloudWidget />
           </DashboardWidget>
         )}
+
+        <DashboardWidget
+          widgetId="star-podium"
+          className="card adult-dashboard-widget star-podium-widget is-clickable"
+          onClick={event => openWidgetFromBackground(event, () => setActiveTab('tasks'))}
+        >
+          <DashboardCardHeader
+            action={() => setActiveTab('tasks')}
+            actionLabel={t('personal.widgets.star-podium.action')}
+            icon={Trophy}
+            title={t('personal.widgets.star-podium.label')}
+          />
+          <StarPodium limit={5} />
+        </DashboardWidget>
 
         <DashboardWidget
           widgetId="home-assistant"
