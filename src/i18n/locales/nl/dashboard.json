@@ -286,6 +286,7 @@
     "plus": "Een ster toevoegen voor {{name}}",
     "minus": "Een ster aftrekken bij {{name}}",
     "adjustReason": "Aanpassing op het dashboard",
-    "adjustFailed": "Sterren konden niet worden aangepast."
+    "adjustFailed": "Sterren konden niet worden aangepast.",
+    "totals": "Huidig sterrensaldo"
   }
 }

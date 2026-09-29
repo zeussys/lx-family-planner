@@ -286,6 +286,7 @@
     "plus": "Add a star for {{name}}",
     "minus": "Deduct a star from {{name}}",
     "adjustReason": "Adjusted on the dashboard",
-    "adjustFailed": "Could not adjust the stars."
+    "adjustFailed": "Could not adjust the stars.",
+    "totals": "Current star totals"
   }
 }

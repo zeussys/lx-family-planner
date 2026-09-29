@@ -4419,12 +4419,12 @@ export function starLeaderboard(familyId, { days = 30 } = {}) {
       stars: Math.max(0, Number(member.stars || 0)),
       earned: earned.get(member.id) || 0
     }))
-    .sort((a, b) => b.earned - a.earned || b.stars - a.stars ||
+    .sort((a, b) => b.stars - a.stars || b.earned - a.earned ||
       a.name.localeCompare(b.name))
     .map((entry, index, all) => ({
       ...entry,
       rank:
-        index > 0 && all[index - 1].earned === entry.earned
+        index > 0 && all[index - 1].stars === entry.stars
           ? all[index - 1].rank
           : index + 1
     }));

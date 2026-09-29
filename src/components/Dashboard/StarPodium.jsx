@@ -3,7 +3,7 @@ import { Minus, Plus, Star, Trophy } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFamily } from '../../context/FamilyContext';
 import { plannerApiRequest } from '../../utils/apiConfig.js';
-import { STAR_PODIUM_DAYS, useStarPodium } from '../../hooks/useStarPodium.js';
+import { useStarPodium } from '../../hooks/useStarPodium.js';
 import { DEFAULT_MEMBER_AVATAR, handleImgError } from '../../utils/imageFallback';
 
 const MEDALS = ['🥇', '🥈', '🥉'];
@@ -53,11 +53,11 @@ export default function StarPodium({ variant = 'default', limit = 0 }) {
         {visible.map((entry, index) => (
           <li
             key={entry.memberId}
-            className={index < 3 && entry.earned ? 'is-podium' : ''}
+            className={index < 3 && entry.stars ? 'is-podium' : ''}
             style={{ '--member-color': entry.color || '#377d69' }}
           >
             <span className="star-podium-rank" aria-hidden="true">
-              {entry.earned ? MEDALS[entry.rank - 1] || entry.rank : '·'}
+              {entry.stars ? MEDALS[entry.rank - 1] || entry.rank : '·'}
             </span>
             <img
               alt=""
@@ -65,10 +65,7 @@ export default function StarPodium({ variant = 'default', limit = 0 }) {
               src={entry.avatar || DEFAULT_MEMBER_AVATAR}
               onError={event => handleImgError(event, DEFAULT_MEMBER_AVATAR)}
             />
-            <span className="star-podium-name">
-              {entry.name}
-              <small>{t('starPodium.balance', { stars: entry.stars })}</small>
-            </span>
+            <span className="star-podium-name">{entry.name}</span>
             {canAdjust && (
               <span className="star-podium-actions">
                 <button
@@ -91,14 +88,14 @@ export default function StarPodium({ variant = 'default', limit = 0 }) {
             )}
             <span className="star-podium-score">
               <Star aria-hidden="true" size={variant === 'wall' ? 22 : 16} />
-              {entry.earned}
+              {entry.stars}
             </span>
           </li>
         ))}
       </ol>
       <p className="star-podium-footnote">
         <Trophy aria-hidden="true" size={14} />
-        {t('starPodium.period', { days: STAR_PODIUM_DAYS })}
+        {t('starPodium.totals')}
       </p>
     </div>
   );

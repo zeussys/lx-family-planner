@@ -89,11 +89,12 @@ test('the history is newest first and a correction can be reverted', () => {
   assert.ok(history[0].createdAt >= history[1].createdAt);
 });
 
-test('the leaderboard ranks by stars earned, not by balance', () => {
+test('the leaderboard ranks by star balance and also reports what was earned', () => {
   const entries = starLeaderboard(FAMILY, { days: 30 });
   const kidA = entries.find(entry => entry.memberId === KID_A);
   const kidB = entries.find(entry => entry.memberId === KID_B);
-  assert.ok(kidA.earned > kidB.earned);
+  assert.ok(kidA.stars > kidB.stars);
+  assert.ok(kidA.earned > 0, 'the 30-day figure stays available');
   assert.equal(entries[0].memberId, KID_A);
   assert.equal(entries[0].rank, 1);
   assert.ok(

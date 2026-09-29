@@ -286,6 +286,7 @@
     "plus": "Añadir una estrella a {{name}}",
     "minus": "Restar una estrella a {{name}}",
     "adjustReason": "Ajuste desde el panel",
-    "adjustFailed": "No se pudieron ajustar las estrellas."
+    "adjustFailed": "No se pudieron ajustar las estrellas.",
+    "totals": "Total actual de estrellas"
   }
 }

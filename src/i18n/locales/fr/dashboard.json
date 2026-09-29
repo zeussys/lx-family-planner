@@ -286,6 +286,7 @@
     "plus": "Ajouter une étoile à {{name}}",
     "minus": "Retirer une étoile à {{name}}",
     "adjustReason": "Ajustement depuis le tableau de bord",
-    "adjustFailed": "Impossible d’ajuster les étoiles."
+    "adjustFailed": "Impossible d’ajuster les étoiles.",
+    "totals": "Total actuel des étoiles"
   }
 }

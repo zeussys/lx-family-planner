@@ -286,6 +286,7 @@
     "plus": "Dodaj gwiazdkę dla {{name}}",
     "minus": "Odejmij gwiazdkę {{name}}",
     "adjustReason": "Korekta z pulpitu",
-    "adjustFailed": "Nie udało się zmienić gwiazdek."
+    "adjustFailed": "Nie udało się zmienić gwiazdek.",
+    "totals": "Aktualny stan gwiazdek"
   }
 }

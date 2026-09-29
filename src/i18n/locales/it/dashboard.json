@@ -286,6 +286,7 @@
     "plus": "Aggiungi una stella a {{name}}",
     "minus": "Togli una stella a {{name}}",
     "adjustReason": "Modifica dalla dashboard",
-    "adjustFailed": "Impossibile modificare le stelle."
+    "adjustFailed": "Impossibile modificare le stelle.",
+    "totals": "Totale attuale delle stelle"
   }
 }

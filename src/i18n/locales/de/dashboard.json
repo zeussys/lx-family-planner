@@ -286,6 +286,7 @@
     "plus": "Einen Stern fuer {{name}} hinzufuegen",
     "minus": "Einen Stern bei {{name}} abziehen",
     "adjustReason": "Anpassung auf dem Dashboard",
-    "adjustFailed": "Sterne konnten nicht angepasst werden."
+    "adjustFailed": "Sterne konnten nicht angepasst werden.",
+    "totals": "Aktueller Sternestand"
   }
 }
