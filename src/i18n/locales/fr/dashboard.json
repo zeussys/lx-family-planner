@@ -281,6 +281,11 @@
     "loading": "Chargement des étoiles …",
     "error": "Classement indisponible.",
     "empty": "Aucune étoile collectée ces 30 derniers jours.",
-    "period": "Étoiles gagnées ces {{days}} derniers jours"
+    "period": "Étoiles gagnées ces {{days}} derniers jours",
+    "balance": "{{stars}} au total",
+    "plus": "Ajouter une étoile à {{name}}",
+    "minus": "Retirer une étoile à {{name}}",
+    "adjustReason": "Ajustement depuis le tableau de bord",
+    "adjustFailed": "Impossible d’ajuster les étoiles."
   }
 }

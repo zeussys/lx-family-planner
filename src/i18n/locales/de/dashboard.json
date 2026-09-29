@@ -281,6 +281,11 @@
     "loading": "Sterne werden geladen …",
     "error": "Bestenliste nicht verfügbar.",
     "empty": "In den letzten 30 Tagen wurden noch keine Sterne gesammelt.",
-    "period": "Verdiente Sterne der letzten {{days}} Tage"
+    "period": "Verdiente Sterne der letzten {{days}} Tage",
+    "balance": "{{stars}} gesamt",
+    "plus": "Einen Stern fuer {{name}} hinzufuegen",
+    "minus": "Einen Stern bei {{name}} abziehen",
+    "adjustReason": "Anpassung auf dem Dashboard",
+    "adjustFailed": "Sterne konnten nicht angepasst werden."
   }
 }

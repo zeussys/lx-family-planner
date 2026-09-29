@@ -335,34 +335,5 @@
       "hint": "Tout est calme par ici en ce moment."
     },
     "openCount": "{{count}} ouvert(s)"
-  },
-  "starAdjust": {
-    "title": "Ajuster les étoiles",
-    "intro": "Ajoutez ou retirez des étoiles avec un motif, un historique et une annulation possible.",
-    "member": "Profil",
-    "amount": "Étoiles (négatif pour retirer)",
-    "reason": "Motif",
-    "reasonPlaceholder": "p. ex. a aidé sans qu’on le demande",
-    "book": "Enregistrer",
-    "history": "Historique",
-    "historyEmpty": "Aucune écriture d’étoiles.",
-    "revert": "Annuler",
-    "saved": "{{name}} a maintenant {{stars}} étoiles.",
-    "failed": "Enregistrement impossible.",
-    "reverted": "Écriture annulée.",
-    "unknown": "Inconnu",
-    "presets": {
-      "helped": "A aidé sans qu’on le demande",
-      "helpedSibling": "A aidé son frère/sa sœur",
-      "askedTwice": "A dû être sollicité deux fois",
-      "behaviour": "Comportement"
-    }
-  },
-  "source": {
-    "task": "Tâche",
-    "reward": "Récompense",
-    "pocketMoney": "Argent de poche",
-    "adjustment": "Correction",
-    "reset": "Réinitialisé"
   }
 }

@@ -335,34 +335,5 @@
       "hint": "Het is hier momenteel rustig."
     },
     "openCount": "{{count}} open"
-  },
-  "starAdjust": {
-    "title": "Sterren aanpassen",
-    "intro": "Sterren toekennen of aftrekken met reden, historie en herstelmogelijkheid.",
-    "member": "Profiel",
-    "amount": "Sterren (negatief om af te trekken)",
-    "reason": "Reden",
-    "reasonPlaceholder": "bijv. hielp zonder dat het gevraagd werd",
-    "book": "Boeken",
-    "history": "Historie",
-    "historyEmpty": "Nog geen sterrenboekingen.",
-    "revert": "Ongedaan maken",
-    "saved": "{{name}} heeft nu {{stars}} sterren.",
-    "failed": "Boeken niet gelukt.",
-    "reverted": "Boeking teruggedraaid.",
-    "unknown": "Onbekend",
-    "presets": {
-      "helped": "Hielp zonder dat het gevraagd werd",
-      "helpedSibling": "Hielp broer/zus",
-      "askedTwice": "Moest twee keer gevraagd worden",
-      "behaviour": "Gedrag"
-    }
-  },
-  "source": {
-    "task": "Taak",
-    "reward": "Beloning",
-    "pocketMoney": "Zakgeld",
-    "adjustment": "Correctie",
-    "reset": "Gereset"
   }
 }

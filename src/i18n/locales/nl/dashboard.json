@@ -281,6 +281,11 @@
     "loading": "Sterren laden …",
     "error": "Ranglijst niet beschikbaar.",
     "empty": "De afgelopen 30 dagen zijn er nog geen sterren verzameld.",
-    "period": "Verdiende sterren van de afgelopen {{days}} dagen"
+    "period": "Verdiende sterren van de afgelopen {{days}} dagen",
+    "balance": "{{stars}} totaal",
+    "plus": "Een ster toevoegen voor {{name}}",
+    "minus": "Een ster aftrekken bij {{name}}",
+    "adjustReason": "Aanpassing op het dashboard",
+    "adjustFailed": "Sterren konden niet worden aangepast."
   }
 }

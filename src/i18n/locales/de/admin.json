@@ -335,34 +335,5 @@
       "hint": "Hier ist im Moment alles ruhig."
     },
     "openCount": "{{count}} offen"
-  },
-  "starAdjust": {
-    "title": "Sterne anpassen",
-    "intro": "Sterne gutschreiben oder abziehen – mit Grund, Verlauf und Korrekturmöglichkeit.",
-    "member": "Profil",
-    "amount": "Sterne (negativ zum Abziehen)",
-    "reason": "Grund",
-    "reasonPlaceholder": "z. B. hat ohne Aufforderung geholfen",
-    "book": "Buchen",
-    "history": "Verlauf",
-    "historyEmpty": "Noch keine Sternebuchungen.",
-    "revert": "Rückgängig",
-    "saved": "{{name}} hat jetzt {{stars}} Sterne.",
-    "failed": "Buchung nicht möglich.",
-    "reverted": "Buchung zurückgenommen.",
-    "unknown": "Unbekannt",
-    "presets": {
-      "helped": "Hat ohne Aufforderung geholfen",
-      "helpedSibling": "Hat Bruder/Schwester geholfen",
-      "askedTwice": "Musste zweimal gefragt werden",
-      "behaviour": "Verhalten"
-    }
-  },
-  "source": {
-    "task": "Aufgabe",
-    "reward": "Belohnung",
-    "pocketMoney": "Taschengeld",
-    "adjustment": "Korrektur",
-    "reset": "Zurückgesetzt"
   }
 }

@@ -281,6 +281,11 @@
     "loading": "Caricamento stelle …",
     "error": "Classifica non disponibile.",
     "empty": "Nessuna stella raccolta negli ultimi 30 giorni.",
-    "period": "Stelle guadagnate negli ultimi {{days}} giorni"
+    "period": "Stelle guadagnate negli ultimi {{days}} giorni",
+    "balance": "{{stars}} in totale",
+    "plus": "Aggiungi una stella a {{name}}",
+    "minus": "Togli una stella a {{name}}",
+    "adjustReason": "Modifica dalla dashboard",
+    "adjustFailed": "Impossibile modificare le stelle."
   }
 }

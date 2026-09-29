@@ -469,6 +469,15 @@ export default function ChildDashboard() {
         </div>
       </section>
 
+      <section className="child-panel child-star-podium">
+        <header>
+          <div>
+            <h2><Trophy size={22} /> {t('child.starPodiumTitle')}</h2>
+          </div>
+        </header>
+        <StarPodium limit={5} variant="child" />
+      </section>
+
       <div className="child-dashboard-grid">
         <section className="child-panel child-quests">
           <header>
@@ -667,15 +676,6 @@ export default function ChildDashboard() {
             </button>
           ))}
         </div>
-      </section>
-
-      <section className="child-panel child-star-podium">
-        <header>
-          <div>
-            <h2><Trophy size={22} /> {t('child.starPodiumTitle')}</h2>
-          </div>
-        </header>
-        <StarPodium limit={5} variant="child" />
       </section>
 
       <section className="child-family-strip">

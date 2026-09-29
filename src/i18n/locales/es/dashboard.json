@@ -281,6 +281,11 @@
     "loading": "Cargando estrellas …",
     "error": "Clasificación no disponible.",
     "empty": "Aún no se han conseguido estrellas en los últimos 30 días.",
-    "period": "Estrellas ganadas en los últimos {{days}} días"
+    "period": "Estrellas ganadas en los últimos {{days}} días",
+    "balance": "{{stars}} en total",
+    "plus": "Añadir una estrella a {{name}}",
+    "minus": "Restar una estrella a {{name}}",
+    "adjustReason": "Ajuste desde el panel",
+    "adjustFailed": "No se pudieron ajustar las estrellas."
   }
 }

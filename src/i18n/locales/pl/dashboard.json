@@ -281,6 +281,11 @@
     "loading": "Wczytywanie gwiazdek …",
     "error": "Ranking niedostępny.",
     "empty": "W ostatnich 30 dniach nie zebrano jeszcze gwiazdek.",
-    "period": "Gwiazdki zdobyte w ostatnich {{days}} dniach"
+    "period": "Gwiazdki zdobyte w ostatnich {{days}} dniach",
+    "balance": "łącznie {{stars}}",
+    "plus": "Dodaj gwiazdkę dla {{name}}",
+    "minus": "Odejmij gwiazdkę {{name}}",
+    "adjustReason": "Korekta z pulpitu",
+    "adjustFailed": "Nie udało się zmienić gwiazdek."
   }
 }

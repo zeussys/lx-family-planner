@@ -63,8 +63,7 @@ const ADULT_WIDGETS = [
   { id: 'trash', icon: Trash2, color: '#66736e' },
   { id: 'board', icon: Pin, color: '#a65a3f' },
   { id: 'cloud', icon: Cloud, color: '#177f7b' },
-  { id: 'home-assistant', icon: Home, color: '#2f7c73' },
-  { id: 'star-podium', icon: Trophy, color: '#a37b1f' }
+  { id: 'home-assistant', icon: Home, color: '#2f7c73' }
 ];
 
 // Gespeicherte Schlüssel im Speiseplan (meal.meal) bleiben deutsch –
@@ -349,6 +348,25 @@ export default function PersonalDashboard() {
         </div>
       </div>
 
+      <section className="card adult-dashboard-widget star-podium-lead">
+
+        <DashboardCardHeader
+
+          action={() => setActiveTab('tasks')}
+
+          actionLabel={t('personal.widgets.star-podium.action')}
+
+          icon={Trophy}
+
+          title={t('personal.widgets.star-podium.label')}
+
+        />
+
+        <StarPodium />
+
+      </section>
+
+
       <OrderedDashboardGrid
         className="adult-widget-grid"
         layout={effectiveDashboardLayout}
@@ -597,20 +615,6 @@ export default function PersonalDashboard() {
             <FamilyCloudWidget />
           </DashboardWidget>
         )}
-
-        <DashboardWidget
-          widgetId="star-podium"
-          className="card adult-dashboard-widget star-podium-widget is-clickable"
-          onClick={event => openWidgetFromBackground(event, () => setActiveTab('tasks'))}
-        >
-          <DashboardCardHeader
-            action={() => setActiveTab('tasks')}
-            actionLabel={t('personal.widgets.star-podium.action')}
-            icon={Trophy}
-            title={t('personal.widgets.star-podium.label')}
-          />
-          <StarPodium limit={5} />
-        </DashboardWidget>
 
         <DashboardWidget
           widgetId="home-assistant"

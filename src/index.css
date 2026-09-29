@@ -25561,3 +25561,42 @@ body:has(.modal-backdrop) .problem-report-launcher {
 @media (max-width: 640px) {
   .star-adjust-custom { grid-template-columns: 1fr; }
 }
+
+/* Podium als erste Kachel und Eltern-Schnellbuchung. */
+.star-podium-lead {
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+}
+
+.star-podium-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.star-podium-name small {
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.star-podium-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.star-podium-actions button {
+  align-items: center;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  min-height: 2.1rem;
+  min-width: 2.1rem;
+  padding: 0;
+}
+
+.star-podium-actions button:disabled { opacity: 0.35; }
+
+.star-podium-wall .star-podium-actions button {
+  min-height: 2.8rem;
+  min-width: 2.8rem;
+}

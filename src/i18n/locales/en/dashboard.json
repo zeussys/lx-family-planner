@@ -281,6 +281,11 @@
     "loading": "Loading stars …",
     "error": "Leaderboard unavailable.",
     "empty": "No stars collected in the last 30 days yet.",
-    "period": "Stars earned in the last {{days}} days"
+    "period": "Stars earned in the last {{days}} days",
+    "balance": "{{stars}} total",
+    "plus": "Add a star for {{name}}",
+    "minus": "Deduct a star from {{name}}",
+    "adjustReason": "Adjusted on the dashboard",
+    "adjustFailed": "Could not adjust the stars."
   }
 }
